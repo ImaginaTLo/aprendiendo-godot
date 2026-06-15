@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cca8t3s7ao4c6"]
+
+[ext_resource type="Script" uid="uid://nhrh8focj7h4" path="res://jugador.gd" id="1_lgngo"]
+[ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="2_fw4w5"]
+
+[node name="Mundo" type="Node2D" unique_id=1984274325]
+
+[node name="Jugador" type="Sprite2D" parent="." unique_id=1010886584]
+texture = ExtResource("2_fw4w5")
+script = ExtResource("1_lgngo")
