@@ -7,5 +7,4 @@
 
 [node name="Jugador" type="Sprite2D" parent="." unique_id=1010886584]
 texture = ExtResource("2_fw4w5")
-centered = false
 script = ExtResource("1_lgngo")
