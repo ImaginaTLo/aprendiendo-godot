@@ -3,13 +3,58 @@
 [ext_resource type="Script" uid="uid://nhrh8focj7h4" path="res://jugador.gd" id="1_lgngo"]
 [ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="2_fw4w5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgngo"]
-size = Vector2(131.25, 127.5)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_fw4w5"]
 radius = 22.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgngo"]
+size = Vector2(131.25, 127.5)
+
 [node name="Mundo" type="Node2D" unique_id=1984274325]
+position = Vector2(-1, 0)
+
+[node name="Moneda" type="Area2D" parent="." unique_id=957245974]
+position = Vector2(677, 315)
+
+[node name="Sprite2D" type="Sprite2D" parent="Moneda" unique_id=1706744061]
+modulate = Color(0.9411765, 0.85882354, 0, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_fw4w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moneda" unique_id=1625576278]
+shape = SubResource("CircleShape2D_fw4w5")
+
+[node name="Moneda2" type="Area2D" parent="." unique_id=1415355282]
+position = Vector2(537, 102)
+
+[node name="Sprite2D" type="Sprite2D" parent="Moneda2" unique_id=576613035]
+modulate = Color(0.9411765, 0.85882354, 0, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_fw4w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moneda2" unique_id=184677934]
+shape = SubResource("CircleShape2D_fw4w5")
+
+[node name="Moneda3" type="Area2D" parent="." unique_id=995394318]
+position = Vector2(300, 124)
+
+[node name="Sprite2D" type="Sprite2D" parent="Moneda3" unique_id=1197281939]
+modulate = Color(0.9411765, 0.85882354, 0, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_fw4w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moneda3" unique_id=1174179698]
+shape = SubResource("CircleShape2D_fw4w5")
+
+[node name="Moneda4" type="Area2D" parent="." unique_id=2126662542]
+position = Vector2(435, 349)
+
+[node name="Sprite2D" type="Sprite2D" parent="Moneda4" unique_id=373025748]
+modulate = Color(0.9411765, 0.85882354, 0, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_fw4w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moneda4" unique_id=922635428]
+shape = SubResource("CircleShape2D_fw4w5")
 
 [node name="Jugador" type="Sprite2D" parent="." unique_id=1010886584]
 position = Vector2(-70, -65)
@@ -20,17 +65,14 @@ script = ExtResource("1_lgngo")
 [node name="Detector" type="Area2D" parent="Jugador" unique_id=906983160]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador/Detector" unique_id=2079897402]
-position = Vector2(64, 65)
+position = Vector2(64, 63)
 shape = SubResource("RectangleShape2D_lgngo")
 
-[node name="Moneda" type="Area2D" parent="." unique_id=957245974]
+[node name="Marcador" type="Label" parent="." unique_id=1354431410]
+offset_left = 404.0
+offset_top = 5.0
+offset_right = 476.0
+offset_bottom = 28.0
+text = "Puntos: 0"
 
-[node name="Sprite2D" type="Sprite2D" parent="Moneda" unique_id=1706744061]
-modulate = Color(0.9411765, 0.85882354, 0, 1)
-position = Vector2(571, -245.00002)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_fw4w5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Moneda" unique_id=1625576278]
-position = Vector2(571, -245)
-shape = SubResource("CircleShape2D_fw4w5")
+[connection signal="area_entered" from="Jugador/Detector" to="Jugador" method="_on_detector_area_entered"]
