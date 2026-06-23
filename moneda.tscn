@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dsfgtnpykf2cx"]
+
+[ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="1_nghqc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fw4w5"]
+radius = 22.0
+
+[node name="Moneda" type="Area2D" unique_id=34026465]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=141165398]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_nghqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1853503217]
+shape = SubResource("CircleShape2D_fw4w5")
