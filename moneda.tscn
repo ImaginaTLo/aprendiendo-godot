@@ -5,10 +5,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_fw4w5"]
 radius = 22.0
 
-[node name="Moneda" type="Area2D" unique_id=34026465]
+[node name="Moneda" type="Area2D" unique_id=34026465 groups=["monedas"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=141165398]
-modulate = Color(0, 1, 1, 1)
+modulate = Color(1, 0.9882353, 0.23529412, 1)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_nghqc")
 

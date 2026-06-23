@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dsfgtnpykf2cx" path="res://moneda.tscn" id="1_fw4w5"]
 [ext_resource type="Script" uid="uid://nhrh8focj7h4" path="res://jugador.gd" id="1_lgngo"]
 [ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="2_fw4w5"]
+[ext_resource type="PackedScene" uid="uid://dmf3c1rli85u2" path="res://enemigo.tscn" id="4_otwa2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgngo"]
 size = Vector2(131.25, 127.5)
@@ -11,18 +12,25 @@ size = Vector2(131.25, 127.5)
 position = Vector2(-1, 0)
 
 [node name="Moneda" parent="." unique_id=34026465 instance=ExtResource("1_fw4w5")]
-position = Vector2(677, 315)
+position = Vector2(665, 250)
 
 [node name="Moneda2" parent="." unique_id=812105631 instance=ExtResource("1_fw4w5")]
 position = Vector2(270, 233)
 
 [node name="Moneda3" parent="." unique_id=2109998043 instance=ExtResource("1_fw4w5")]
-position = Vector2(409, 378)
+position = Vector2(437, 397)
 
 [node name="Moneda4" parent="." unique_id=944708236 instance=ExtResource("1_fw4w5")]
 position = Vector2(925, 190)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1565287224]
+[node name="Enemigo" parent="." unique_id=296691112 instance=ExtResource("4_otwa2")]
+position = Vector2(806, 276)
+
+[node name="Enemigo2" parent="." unique_id=1707420856 instance=ExtResource("4_otwa2")]
+position = Vector2(283, 384)
+
+[node name="Enemigo3" parent="." unique_id=1501954528 instance=ExtResource("4_otwa2")]
+position = Vector2(531, 185)
 
 [node name="Jugador" type="Sprite2D" parent="." unique_id=1010886584]
 position = Vector2(-70, -65)

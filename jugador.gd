@@ -26,12 +26,15 @@ func _process(delta: float) -> void:
 
 
 func _on_detector_area_entered(area: Area2D) -> void:
-	area.queue_free()
-	puntuacion += 1
+	if area.is_in_group("monedas"):
+		area.queue_free()
+		puntuacion += 1
+		var marcador_ui = get_node("../Marcador")
 	
-	var marcador_ui = get_node("../Marcador")
-	
-	if puntuacion == meta_monedas:
-		marcador_ui.text = "!HAS GANADO! Pulsa `R`"
-	else:
-		marcador_ui.text = "Puntos: " + str(puntuacion)
+		if puntuacion == meta_monedas:
+			marcador_ui.text = "!HAS GANADO! Pulsa `R`"
+		else:
+			marcador_ui.text = "Puntos: " + str(puntuacion)
+		
+	elif area.is_in_group("enemigos"):
+		get_tree().reload_current_scene()

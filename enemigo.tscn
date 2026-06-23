@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dmf3c1rli85u2"]
+
+[ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="1_becj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_becj5"]
+size = Vector2(68.25, 65)
+
+[node name="Enemigo" type="Area2D" unique_id=296691112 groups=["enemigos"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1256321938]
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_becj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862237645]
+position = Vector2(-0.125, 0.5)
+shape = SubResource("RectangleShape2D_becj5")
