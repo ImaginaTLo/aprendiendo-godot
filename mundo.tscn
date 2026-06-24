@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://nhrh8focj7h4" path="res://jugador.gd" id="1_lgngo"]
 [ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="2_fw4w5"]
 [ext_resource type="PackedScene" uid="uid://dmf3c1rli85u2" path="res://enemigo.tscn" id="4_otwa2"]
+[ext_resource type="AudioStream" uid="uid://cyynm00ih1xxp" path="res://moneda_sfx.wav.wav" id="5_aou4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgngo"]
 size = Vector2(131.25, 127.5)
@@ -43,6 +44,9 @@ script = ExtResource("1_lgngo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador/Detector" unique_id=2079897402]
 position = Vector2(64, 63)
 shape = SubResource("RectangleShape2D_lgngo")
+
+[node name="SonidoMoneda" type="AudioStreamPlayer" parent="Jugador" unique_id=670562734]
+stream = ExtResource("5_aou4a")
 
 [node name="Marcador" type="Label" parent="." unique_id=1354431410]
 offset_left = 404.0
