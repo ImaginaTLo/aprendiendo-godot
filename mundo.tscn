@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cca8t3s7ao4c6"]
 
+[ext_resource type="Script" uid="uid://bmssumcoqyy6" path="res://mundo.gd" id="1_5ckkb"]
 [ext_resource type="PackedScene" uid="uid://dsfgtnpykf2cx" path="res://moneda.tscn" id="1_fw4w5"]
 [ext_resource type="Script" uid="uid://nhrh8focj7h4" path="res://jugador.gd" id="1_lgngo"]
 [ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="2_fw4w5"]
@@ -11,6 +12,7 @@ size = Vector2(131.25, 127.5)
 
 [node name="Mundo" type="Node2D" unique_id=1984274325]
 position = Vector2(-1, 0)
+script = ExtResource("1_5ckkb")
 
 [node name="Moneda" parent="." unique_id=34026465 instance=ExtResource("1_fw4w5")]
 position = Vector2(731, 601)
@@ -55,4 +57,9 @@ offset_right = 581.0
 offset_bottom = 32.0
 text = "Puntos: 0"
 
+[node name="Timer" type="Timer" parent="." unique_id=2121085209]
+wait_time = 2.0
+autostart = true
+
 [connection signal="area_entered" from="Jugador/Detector" to="Jugador" method="_on_detector_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
