@@ -1,6 +1,6 @@
 # Proyecto 1: Cube Survivor
 Un prototipo sencillo de recolección y supervivencia procedural desarrollado en Godot 4.6 (.NET) 
-como primera toma de cntacto y preparación para el grado de diseño de Videojuegos en la U-tad.
+como primera toma de contacto y preparación para el grado de diseño de Videojuegos en la U-tad.
 
 ## Game Loop y Reglas
 El jugador debe moverse por la pantalla para recolectar monedas mientras esquiva una horda creciente de enemigos
