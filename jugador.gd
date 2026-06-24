@@ -5,12 +5,16 @@ var velocidad_sprint: float = 800.0
 var velocidad_actual: float = 400.0
 
 var puntuacion: int = 0
-
 var meta_monedas: int = 4
+
+var juego_terminado: bool = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reiniciar"):
 		get_tree().reload_current_scene()
+		
+	if juego_terminado == true:
+		return
 
 	if Input.is_action_pressed ("sprint"):
 		velocidad_actual = velocidad_sprint
@@ -26,18 +30,24 @@ func _process(delta: float) -> void:
 
 
 func _on_detector_area_entered(area: Area2D) -> void:
+	
+	if juego_terminado == true:
+		return
+	
+	var marcador_ui = get_node("../Marcador")
+	
 	if area.is_in_group("monedas"):
 		area.queue_free()
-		
 		$SonidoMoneda.play()
-		
 		puntuacion += 1
-		var marcador_ui = get_node("../Marcador")
 	
 		if puntuacion == meta_monedas:
 			marcador_ui.text = "!HAS GANADO! Pulsa `R`"
+			juego_terminado = true
 		else:
 			marcador_ui.text = "Puntos: " + str(puntuacion)
 		
 	elif area.is_in_group("enemigos"):
-		get_tree().reload_current_scene()
+		marcador_ui.text = "!HAS MUERTO! Pulsa `R`"
+		visible = false
+		juego_terminado = true
