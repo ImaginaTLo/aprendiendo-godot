@@ -1,6 +1,6 @@
 extends Area2D
 
-var velocidad: float = 200.0
+var velocidad: float = 500.0
 var direccion: int = 1
 
 func _process(delta: float) -> void:

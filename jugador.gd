@@ -5,7 +5,7 @@ var velocidad_sprint: float = 800.0
 var velocidad_actual: float = 400.0
 
 var puntuacion: int = 0
-var meta_monedas: int = 4
+var meta_monedas: int = 10
 
 var juego_terminado: bool = false
 
