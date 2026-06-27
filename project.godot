@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="aprendiendo-godot"
-run/main_scene="uid://cca8t3s7ao4c6"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+run/main_scene="uid://b6mgi56iju3d2"
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]

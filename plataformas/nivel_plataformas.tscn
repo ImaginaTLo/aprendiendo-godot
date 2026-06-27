@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b6mgi56iju3d2"]
+
+[ext_resource type="PackedScene" uid="uid://bv4y78n45ws8j" path="res://plataformas/suelo.tscn" id="1_tn3kf"]
+[ext_resource type="PackedScene" uid="uid://dgwgsst2o7sv6" path="res://plataformas/jugador_plataformas.tscn" id="2_82tev"]
+[ext_resource type="PackedScene" uid="uid://ckhbs24jsc45d" path="res://plataformas/moneda.tscn" id="3_uqo7p"]
+
+[node name="NivelPlataformas" type="Node2D" unique_id=328432366]
+
+[node name="Suelo" parent="." unique_id=590724435 instance=ExtResource("1_tn3kf")]
+position = Vector2(1099, 583)
+
+[node name="JugadorPlataformas" parent="." unique_id=625455221 instance=ExtResource("2_82tev")]
+position = Vector2(656, 395)
+
+[node name="Moneda" parent="." unique_id=738642365 instance=ExtResource("3_uqo7p")]
+position = Vector2(891, 309)
