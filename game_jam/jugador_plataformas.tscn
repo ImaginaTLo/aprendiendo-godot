@@ -161,8 +161,8 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf8s1"]
-size = Vector2(128, 126)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efk8r"]
+size = Vector2(11, 8)
 
 [node name="JugadorPlataformas" type="CharacterBody2D" unique_id=625455221 groups=["jugador"]]
 position = Vector2(0, 1)
@@ -170,10 +170,11 @@ script = ExtResource("1_nf8s1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1343392779]
 sprite_frames = SubResource("SpriteFrames_kl0ug")
-animation = &"jump"
-frame = 2
-frame_progress = 0.9222282
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=920100595]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_nf8s1")
+position = Vector2(0.5, 12)
+shape = SubResource("RectangleShape2D_efk8r")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=929244371]
+zoom = Vector2(3.5, 3.5)

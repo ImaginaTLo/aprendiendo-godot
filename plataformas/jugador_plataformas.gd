@@ -1,22 +1,54 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 80.0
+const JUMP_VELOCITY = -250.0
+const SQUASH_DURATION = 1.7 # Segundos de invulnerabilidad
+var is_squashed = false # Estado de aplastamiento
+var squash_timer = 0.0 # Cronómetro
 
+func _physics_process(delta):
+	
+	# BOTÓN DE REINICIO MANUAL
+	if Input.is_action_just_pressed("reiniciar"):
+		get_tree().reload_current_scene()
+		
+	# --- ESTADO 1: APLASTADO (INVULNERABLE) ---
+	if is_squashed:
+		squash_timer -= delta
+		if squash_timer <= 0:
+			# Se acaba el efecto: volvemos a la normalidad
+			is_squashed = false
+			anim.scale = Vector2(1, 1) # Restauramos el tamaño visual
+			anim.position.y = 0 # Devolvemos el dibujo a su centro original
+		else:
+			# Mientras estamos aplastados:
+			velocity.x = 0 # No podemos movernos a los lados
+			if not is_on_floor():
+				velocity += get_gravity() * delta # La gravedad sigue afectando por si caemos
+			move_and_slide()
+			return # Ignoramos el resto del código de movimiento
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# --- ESTADO 2: NORMAL ---
+	# Gravedad
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	# Salto Normal y Variable
+	if Input.is_action_just_pressed("saltar") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_released("saltar") and velocity.y < 0:
+		velocity.y *= 0.5
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	# ACTIVAR HABILIDAD (Solo si estamos en el suelo)
+	if Input.is_action_just_pressed("habilidad") and is_on_floor() and not is_squashed:
+		is_squashed = true
+		squash_timer = SQUASH_DURATION
+		anim.scale = Vector2(1.8, 0.3) # 1.8 de ancho, 0.3 de alto (más fino)
+		anim.position.y = 10 # Empujamos el dibujo 11 píxeles hacia abajo para que toque el suelo
+
+	# Movimiento Horizontal
+	var direction = Input.get_axis("mover_izq", "mover_der")
 	if direction:
 		velocity.x = direction * SPEED
 	else:

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6mgi56iju3d2"]
 
-[ext_resource type="PackedScene" uid="uid://bv4y78n45ws8j" path="res://plataformas/suelo.tscn" id="1_tn3kf"]
-[ext_resource type="PackedScene" uid="uid://dgwgsst2o7sv6" path="res://plataformas/jugador_plataformas.tscn" id="2_82tev"]
+[ext_resource type="PackedScene" uid="uid://bv4y78n45ws8j" path="res://game_jam/suelo.tscn" id="1_tn3kf"]
+[ext_resource type="PackedScene" uid="uid://dgwgsst2o7sv6" path="res://game_jam/jugador_plataformas.tscn" id="2_82tev"]
 [ext_resource type="PackedScene" uid="uid://ckhbs24jsc45d" path="res://plataformas/moneda.tscn" id="3_uqo7p"]
 
 [node name="NivelPlataformas" type="Node2D" unique_id=328432366]

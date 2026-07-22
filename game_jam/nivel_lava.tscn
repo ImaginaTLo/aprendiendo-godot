@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://io1fhy1wjqgo"]
+
+[ext_resource type="PackedScene" uid="uid://dgwgsst2o7sv6" path="res://game_jam/jugador_plataformas.tscn" id="1_5ts34"]
+[ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="2_5ts34"]
+[ext_resource type="PackedScene" uid="uid://bf7sikrl4clw8" path="res://game_jam/lava.tscn" id="3_d4s1t"]
+[ext_resource type="Script" uid="uid://dxms3o04jpn5m" path="res://game_jam/generador_gotas.gd" id="5_t2nrx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tep26"]
+size = Vector2(365, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4s1t"]
+size = Vector2(184.75, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udvdo"]
+size = Vector2(27.140625, 5.359375)
+
+[node name="NivelLava" type="Node2D" unique_id=195622593]
+
+[node name="JugadorPlataformas" parent="." unique_id=625455221 instance=ExtResource("1_5ts34")]
+position = Vector2(152, 95)
+
+[node name="Techo" type="StaticBody2D" parent="." unique_id=590724435]
+position = Vector2(483, -429)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Techo" unique_id=1572644790]
+position = Vector2(-307, 407.5)
+scale = Vector2(2.8403318, 0.3359375)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Techo" unique_id=2016604231]
+position = Vector2(-307, 407)
+shape = SubResource("RectangleShape2D_tep26")
+
+[node name="ParedDerecha" type="StaticBody2D" parent="." unique_id=1133129346]
+position = Vector2(493, -428)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParedDerecha" unique_id=2073690901]
+position = Vector2(-142, 520)
+rotation = 1.5707964
+scale = Vector2(1.4369527, 0.3359375)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedDerecha" unique_id=1863861666]
+position = Vector2(-142, 520.375)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_d4s1t")
+
+[node name="ParedIzquierda" type="StaticBody2D" parent="." unique_id=1580940650]
+position = Vector2(451, -429)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParedIzquierda" unique_id=369122886]
+position = Vector2(-472, 520)
+rotation = 1.5707964
+scale = Vector2(1.4369527, 0.3359375)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedIzquierda" unique_id=1808058828]
+position = Vector2(-472, 520)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_d4s1t")
+
+[node name="Suelo4" type="StaticBody2D" parent="." unique_id=944170452]
+position = Vector2(400, 299)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo4" unique_id=1197472863]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo4" unique_id=429313792]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo5" type="StaticBody2D" parent="." unique_id=1996174971]
+position = Vector2(445, 272)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo5" unique_id=1712409209]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo5" unique_id=1991027996]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo6" type="StaticBody2D" parent="." unique_id=1519466731]
+position = Vector2(588, 308)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo6" unique_id=228281787]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo6" unique_id=1993949805]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo7" type="StaticBody2D" parent="." unique_id=2100663310]
+position = Vector2(438, 329)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo7" unique_id=1651123736]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo7" unique_id=1426239121]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo8" type="StaticBody2D" parent="." unique_id=1770708193]
+position = Vector2(534, 331)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo8" unique_id=1806808175]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo8" unique_id=810894310]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo9" type="StaticBody2D" parent="." unique_id=771857858]
+position = Vector2(405, 244)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo9" unique_id=928918727]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo9" unique_id=332381642]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo10" type="StaticBody2D" parent="." unique_id=2146708147]
+position = Vector2(484, 304)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo10" unique_id=548824920]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo10" unique_id=481523124]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo11" type="StaticBody2D" parent="." unique_id=1126435988]
+position = Vector2(505, 255)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo11" unique_id=560810821]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo11" unique_id=1149424923]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo12" type="StaticBody2D" parent="." unique_id=1958864415]
+position = Vector2(532, 285)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo12" unique_id=1508381844]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo12" unique_id=449848871]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo13" type="StaticBody2D" parent="." unique_id=2005487068]
+position = Vector2(532, 285)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo13" unique_id=1107216801]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo13" unique_id=1811717182]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Suelo14" type="StaticBody2D" parent="." unique_id=1258463419]
+position = Vector2(580, 259)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo14" unique_id=315744373]
+position = Vector2(-332.59375, -190.25)
+scale = Vector2(0.212403, 0.042969048)
+texture = ExtResource("2_5ts34")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo14" unique_id=1557970054]
+position = Vector2(-332.5703, -190.32031)
+shape = SubResource("RectangleShape2D_udvdo")
+
+[node name="Lava" parent="." unique_id=162887027 instance=ExtResource("3_d4s1t")]
+position = Vector2(-437, -60)
+
+[node name="GeneradorGotas" type="Node2D" parent="." unique_id=482182895]
+script = ExtResource("5_t2nrx")
+
+[node name="Timer" type="Timer" parent="GeneradorGotas" unique_id=1668283322]
+wait_time = 1.5
+autostart = true
