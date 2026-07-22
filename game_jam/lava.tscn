@@ -4,17 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="1_nk88q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x41q"]
-size = Vector2(558, 87)
+size = Vector2(558, 90)
 
 [node name="Lava" type="Area2D" unique_id=162887027]
 script = ExtResource("1_8x41q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1729255857]
 modulate = Color(1.685791, 0.31399396, 0, 1)
-position = Vector2(620, 289)
 scale = Vector2(4.3652344, 0.703125)
 texture = ExtResource("1_nk88q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=279089514]
-position = Vector2(619, 288.5)
 shape = SubResource("RectangleShape2D_8x41q")

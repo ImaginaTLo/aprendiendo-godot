@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b44y60s7xpxym"]
+
+[ext_resource type="Script" uid="uid://debthgmvaqlrj" path="res://hud.gd" id="1_0ic0o"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1392480384]
+script = ExtResource("1_0ic0o")
+
+[node name="Label" type="Label" parent="." unique_id=1562323418]
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 80.0
+offset_bottom = 25.0
+text = "Tiempo: 0"
+
+[node name="TimerPuntos" type="Timer" parent="." unique_id=1589155843]
+autostart = true

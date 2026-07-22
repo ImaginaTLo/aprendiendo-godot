@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dgwgsst2o7sv6" path="res://game_jam/jugador_plataformas.tscn" id="1_5ts34"]
 [ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="2_5ts34"]
 [ext_resource type="PackedScene" uid="uid://bf7sikrl4clw8" path="res://game_jam/lava.tscn" id="3_d4s1t"]
-[ext_resource type="PackedScene" uid="uid://htws1edd77ag" path="res://game_jam/pegote_slime.tscn" id="5_0mddc"]
+[ext_resource type="Script" uid="uid://btt46wa6s0q73" path="res://game_jam/generador_salpicaduras.gd" id="5_pcg5f"]
 [ext_resource type="Script" uid="uid://dxms3o04jpn5m" path="res://game_jam/generador_gotas.gd" id="5_t2nrx"]
+[ext_resource type="PackedScene" uid="uid://b44y60s7xpxym" path="res://game_jam/hud.tscn" id="6_0mddc"]
+[ext_resource type="Script" uid="uid://bd1evcn7v2rhb" path="res://game_jam/generador_pegotes.gd" id="6_bkmjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tep26"]
 size = Vector2(365, 43)
@@ -49,7 +51,7 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_d4s1t")
 
 [node name="ParedIzquierda" type="StaticBody2D" parent="." unique_id=1580940650]
-position = Vector2(451, -429)
+position = Vector2(451, -428)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="ParedIzquierda" unique_id=369122886]
@@ -207,20 +209,56 @@ position = Vector2(-332.5703, -190.32031)
 shape = SubResource("RectangleShape2D_udvdo")
 
 [node name="Lava" parent="." unique_id=162887027 instance=ExtResource("3_d4s1t")]
-position = Vector2(-437, -60)
+position = Vector2(187, 228)
 
 [node name="GeneradorGotas" type="Node2D" parent="." unique_id=482182895]
+position = Vector2(0, 2)
 script = ExtResource("5_t2nrx")
 
 [node name="Timer" type="Timer" parent="GeneradorGotas" unique_id=1668283322]
+wait_time = 0.7
 autostart = true
 
-[node name="PegoteSlime" parent="." unique_id=1651655544 instance=ExtResource("5_0mddc")]
-position = Vector2(98, 134)
+[node name="GeneradorSalpicaduras" type="Node2D" parent="." unique_id=1886315058]
+position = Vector2(0, 183)
+script = ExtResource("5_pcg5f")
 
-[node name="PegoteSlime2" parent="." unique_id=1872777767 instance=ExtResource("5_0mddc")]
-position = Vector2(257, 63)
+[node name="Timer" type="Timer" parent="GeneradorSalpicaduras" unique_id=1216667697]
+wait_time = 0.3
+autostart = true
 
-[node name="PegoteSlime3" parent="." unique_id=279881159 instance=ExtResource("5_0mddc")]
-position = Vector2(72, 49.000004)
-rotation = 3.1222498
+[node name="GeneradorPegotes" type="Node2D" parent="." unique_id=1043904527]
+script = ExtResource("6_bkmjc")
+
+[node name="Timer" type="Timer" parent="GeneradorPegotes" unique_id=1858371411]
+wait_time = 6.0
+autostart = true
+
+[node name="Punto1" type="Marker2D" parent="GeneradorPegotes" unique_id=559064318]
+position = Vector2(252, 113)
+
+[node name="Punto2" type="Marker2D" parent="GeneradorPegotes" unique_id=58540809]
+position = Vector2(211, 136)
+
+[node name="Punto3" type="Marker2D" parent="GeneradorPegotes" unique_id=1091079270]
+position = Vector2(197, 90)
+
+[node name="Punto4" type="Marker2D" parent="GeneradorPegotes" unique_id=1565983444]
+position = Vector2(173, 60)
+
+[node name="Punto5" type="Marker2D" parent="GeneradorPegotes" unique_id=1420932294]
+position = Vector2(112, 77)
+
+[node name="Punto6" type="Marker2D" parent="GeneradorPegotes" unique_id=973278267]
+position = Vector2(253, 64)
+
+[node name="Punto7" type="Marker2D" parent="GeneradorPegotes" unique_id=1713597182]
+position = Vector2(116, 134)
+
+[node name="Punto8" type="Marker2D" parent="GeneradorPegotes" unique_id=1022519929]
+position = Vector2(64, 49)
+
+[node name="Punto9" type="Marker2D" parent="GeneradorPegotes" unique_id=1729762590]
+position = Vector2(63, 104)
+
+[node name="HUD" parent="." unique_id=1392480384 instance=ExtResource("6_0mddc")]

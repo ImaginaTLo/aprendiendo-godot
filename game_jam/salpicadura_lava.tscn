@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bs7ka3vpa6qcr"]
+
+[ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="1_8buux"]
+[ext_resource type="Script" uid="uid://84gjdmedtybo" path="res://game_jam/salpicadura_lava.gd" id="1_ocdfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocdfh"]
+size = Vector2(3, 3)
+
+[node name="SalpicaduraLava" type="Area2D" unique_id=2042869249]
+script = ExtResource("1_ocdfh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=324838743]
+modulate = Color(4.3315187, 0, 0, 1)
+scale = Vector2(0.027, 0.027)
+texture = ExtResource("1_8buux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=535206975]
+shape = SubResource("RectangleShape2D_ocdfh")
