@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://htws1edd77ag"]
+
+[ext_resource type="Script" uid="uid://kiktjfjoj62c" path="res://game_jam/pegote_slime.gd" id="1_kr8yr"]
+[ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="1_mwvl4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr8yr"]
+size = Vector2(66.666664, 66.666664)
+
+[node name="PegoteSlime" type="Area2D" unique_id=1651655544]
+script = ExtResource("1_kr8yr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102149241]
+modulate = Color(0, 5.6880865, 0, 1)
+rotation = -0.003508971
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_mwvl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1443169724]
+position = Vector2(-5.9604645e-08, 5.9604645e-08)
+scale = Vector2(0.06, 0.06)
+shape = SubResource("RectangleShape2D_kr8yr")

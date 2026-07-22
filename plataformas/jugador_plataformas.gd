@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -250.0
 const SQUASH_DURATION = 1.7 # Segundos de invulnerabilidad
 var is_squashed = false # Estado de aplastamiento
 var squash_timer = 0.0 # Cronómetro
+var municion_slime = 0
+const MAX_MUNICION = 4 # El máximo de secciones que dijiste en el GDD
 
 func _physics_process(delta):
 	
@@ -40,8 +42,10 @@ func _physics_process(delta):
 	if Input.is_action_just_released("saltar") and velocity.y < 0:
 		velocity.y *= 0.5
 
-	# ACTIVAR HABILIDAD (Solo si estamos en el suelo)
-	if Input.is_action_just_pressed("habilidad") and is_on_floor() and not is_squashed:
+	# ACTIVAR HABILIDAD (Solo si estamos en el suelo, no aplastados, Y TENEMOS MUNICIÓN)
+	if Input.is_action_just_pressed("habilidad") and is_on_floor() and not is_squashed and municion_slime > 0:
+		municion_slime -= 1 # Gastamos una carga
+		print("Habilidad usada. Munición restante: ", municion_slime)
 		is_squashed = true
 		squash_timer = SQUASH_DURATION
 		anim.scale = Vector2(1.8, 0.3) # 1.8 de ancho, 0.3 de alto (más fino)
@@ -73,3 +77,8 @@ func _physics_process(delta):
 		anim.play("jump")
 
 	move_and_slide()
+	
+func recoger_pegote():
+	if municion_slime < MAX_MUNICION:
+		municion_slime += 1
+		print("Munición actual: ", municion_slime)

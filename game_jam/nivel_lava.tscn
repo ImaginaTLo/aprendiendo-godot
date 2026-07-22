@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dgwgsst2o7sv6" path="res://game_jam/jugador_plataformas.tscn" id="1_5ts34"]
 [ext_resource type="Texture2D" uid="uid://cubd88rqxkjxt" path="res://icon.svg" id="2_5ts34"]
 [ext_resource type="PackedScene" uid="uid://bf7sikrl4clw8" path="res://game_jam/lava.tscn" id="3_d4s1t"]
+[ext_resource type="PackedScene" uid="uid://htws1edd77ag" path="res://game_jam/pegote_slime.tscn" id="5_0mddc"]
 [ext_resource type="Script" uid="uid://dxms3o04jpn5m" path="res://game_jam/generador_gotas.gd" id="5_t2nrx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tep26"]
@@ -212,5 +213,14 @@ position = Vector2(-437, -60)
 script = ExtResource("5_t2nrx")
 
 [node name="Timer" type="Timer" parent="GeneradorGotas" unique_id=1668283322]
-wait_time = 1.5
 autostart = true
+
+[node name="PegoteSlime" parent="." unique_id=1651655544 instance=ExtResource("5_0mddc")]
+position = Vector2(98, 134)
+
+[node name="PegoteSlime2" parent="." unique_id=1872777767 instance=ExtResource("5_0mddc")]
+position = Vector2(257, 63)
+
+[node name="PegoteSlime3" parent="." unique_id=279881159 instance=ExtResource("5_0mddc")]
+position = Vector2(72, 49.000004)
+rotation = 3.1222498
