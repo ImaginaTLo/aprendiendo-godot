@@ -53,4 +53,4 @@ func _on_body_entered(body):
 	if body.is_in_group("jugador"):
 		if body.is_squashed == false:
 			print("¡Una erupción te ha desintegrado!")
-			get_tree().call_deferred("reload_current_scene")
+			body.morir()

@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+signal ha_muerto
+var esta_muerto = false
+signal municion_cambiada(nueva_cantidad)
+signal puntuacion_cambiada(nueva_puntuacion)
+
+var puntuacion = 0
 @onready var anim = $AnimatedSprite2D
 const SPEED = 80.0
 const JUMP_VELOCITY = -250.0
@@ -11,9 +17,17 @@ const MAX_MUNICION = 4 # El máximo de secciones que dijiste en el GDD
 
 func _physics_process(delta):
 	
-	# BOTÓN DE REINICIO MANUAL
+	# BOTÓfunc _physics_process(delta):
+	# 1. EL BOTÓN DE REINICIO SIEMPRE FUNCIONA
 	if Input.is_action_just_pressed("reiniciar"):
 		get_tree().reload_current_scene()
+		
+	# 2. SI ESTAMOS MUERTOS, EL CÓDIGO SE DETIENE AQUÍ
+	if esta_muerto:
+		return 
+		
+	# --- ESTADO 1: APLASTADO (INVULNERABLE) ---
+	# (Aquí sigue tu código normal...)
 		
 	# --- ESTADO 1: APLASTADO (INVULNERABLE) ---
 	if is_squashed:
@@ -45,11 +59,12 @@ func _physics_process(delta):
 	# ACTIVAR HABILIDAD (Solo si estamos en el suelo, no aplastados, Y TENEMOS MUNICIÓN)
 	if Input.is_action_just_pressed("habilidad") and is_on_floor() and not is_squashed and municion_slime > 0:
 		municion_slime -= 1 # Gastamos una carga
+		municion_cambiada.emit(municion_slime) # Avisamos de que hemos gastado una
 		print("Habilidad usada. Munición restante: ", municion_slime)
 		is_squashed = true
 		squash_timer = SQUASH_DURATION
 		anim.scale = Vector2(1.8, 0.3) # 1.8 de ancho, 0.3 de alto (más fino)
-		#anim.position.y = 12 # Empujamos el dibujo 11 píxeles hacia abajo para que toque el suelo
+		anim.position.y = 11 # Empujamos el dibujo 11 píxeles hacia abajo para que toque el suelo
 
 	# Movimiento Horizontal
 	var direction = Input.get_axis("mover_izq", "mover_der")
@@ -81,4 +96,16 @@ func _physics_process(delta):
 func recoger_pegote():
 	if municion_slime < MAX_MUNICION:
 		municion_slime += 1
-		print("Munición actual: ", municion_slime)
+		puntuacion += 1 # Suma 1 punto normal
+		municion_cambiada.emit(municion_slime)
+	else:
+		puntuacion += 2 # Suma 2 puntos (Bonus por barra llena)
+		
+	# Emitimos la señal de los puntos siempre que recojamos uno
+	puntuacion_cambiada.emit(puntuacion)
+	
+func morir():
+	esta_muerto = true
+	visible = false # Hacemos invisible al Slime
+	$CollisionShape2D.set_deferred("disabled", true) # Desactivamos su colisión para que no le sigan pegando
+	ha_muerto.emit() # Avisamos al HUD

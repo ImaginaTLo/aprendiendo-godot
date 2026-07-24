@@ -3,24 +3,24 @@ extends Node2D
 var escena_pegote = preload("res://game_jam/pegote_slime.tscn")
 
 func _ready():
-	$Timer.timeout.connect(_on_timer_timeout)
+	$Timer.timeout.connect(_on_timer_timeout)  
 
 func _on_timer_timeout():
-	
-	print("El reloj ha sonado. Intentando crear pegote...")
-	# 1. Creamos una lista vacía para guardar nuestros puntos
 	var puntos_validos = []
 	
-	# 2. Revisamos todos los hijos de este generador
+	# 1. EL FILTRO INTELIGENTE
 	for nodo in get_children():
-		if nodo is Marker2D: # Si es un marcador, lo añadimos a la lista
+		# Si es un marcador Y ADEMÁS no tiene hijos (está vacío)
+		if nodo is Marker2D and nodo.get_child_count() == 0:
 			puntos_validos.append(nodo)
 			
-	# 3. Si hay puntos válidos, elegimos uno al azar
+	# 2. Si quedan puntos vacíos, elegimos uno
 	if puntos_validos.size() > 0:
 		var punto_elegido = puntos_validos.pick_random()
-		
-		# 4. Fabricamos el pegote y lo ponemos en esa posición
 		var nuevo_pegote = escena_pegote.instantiate()
-		nuevo_pegote.position = punto_elegido.position
-		add_child(nuevo_pegote)
+		
+		# 3. Como ahora será hijo del marcador, su posición 0,0 es exactamente encima de él
+		nuevo_pegote.position = Vector2.ZERO 
+		
+		# 4. Metemos el pegote DENTRO del marcador elegido, no suelto en el nivel
+		punto_elegido.add_child(nuevo_pegote)

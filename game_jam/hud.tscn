@@ -2,15 +2,64 @@
 
 [ext_resource type="Script" uid="uid://debthgmvaqlrj" path="res://hud.gd" id="1_0ic0o"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ic0o"]
+bg_color = Color(0.60038817, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.64529705, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ve6e1"]
+bg_color = Color(0.60038817, 1, 0, 1)
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.7028097, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ic0o"]
+font_size = 40
+
 [node name="HUD" type="CanvasLayer" unique_id=1392480384]
 script = ExtResource("1_0ic0o")
 
 [node name="Label" type="Label" parent="." unique_id=1562323418]
-offset_left = 4.0
-offset_top = 2.0
-offset_right = 80.0
-offset_bottom = 25.0
-text = "Tiempo: 0"
+offset_left = 34.0
+offset_top = 5.0
+offset_right = 110.0
+offset_bottom = 28.0
+text = "Time: 0"
 
 [node name="TimerPuntos" type="Timer" parent="." unique_id=1589155843]
 autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=886172908]
+offset_left = 127.0
+offset_top = 5.0
+offset_right = 300.0
+offset_bottom = 32.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_0ic0o")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ve6e1")
+max_value = 4.0
+step = 1.0
+show_percentage = false
+
+[node name="LabelPuntuacion" type="Label" parent="." unique_id=2021045877]
+offset_left = 313.0
+offset_top = 6.0
+offset_right = 392.0
+offset_bottom = 29.0
+text = "Score: 0"
+
+[node name="LabelGameOver" type="Label" parent="." unique_id=118443507]
+visible = false
+modulate = Color(0, 0.80946815, 0.025840001, 1)
+offset_left = 42.0
+offset_top = 313.0
+offset_right = 1068.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 33
+text = "YOU'VE TURNED INTO LIME JUICE. Press \"R\" to restart"
+label_settings = SubResource("LabelSettings_0ic0o")

@@ -11,6 +11,6 @@ func _on_body_entered(body):
 	if body.is_in_group("jugador"):
 		if body.is_squashed == false:
 			print("¡El Slime se ha derretido!")
-			get_tree().call_deferred("reload_current_scene")
+			body.morir()
 		else:
 			print("El Slime resistió la lava gracias a su habilidad.")

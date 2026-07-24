@@ -15,7 +15,7 @@ func _on_body_entered(body):
 	if body.is_in_group("jugador"):
 		if body.is_squashed == false:
 			print("¡Una gota ha derretido al Slime!")
-			get_tree().call_deferred("reload_current_scene")
+			body.morir()
 		else:
 			print("La gota rebotó en el Slime aplastado.")
 			queue_free() # La gota se destruye al chocar contra el escudo
