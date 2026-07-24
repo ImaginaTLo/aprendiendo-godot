@@ -22,7 +22,7 @@ func _on_body_entered(body):
 	if body.is_in_group("jugador"):
 		if body.is_squashed == false:
 			print("¡Una salpicadura te ha calcinado!")
-			get_tree().call_deferred("reload_current_scene")
+			body.morir()
 		else:
 			queue_free()
 	elif not body.is_in_group("jugador"):
