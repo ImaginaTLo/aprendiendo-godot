@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cnt12o8yio1y7"]
+
+[ext_resource type="Script" uid="uid://bhrifoo07s1ns" path="res://game_jam/erupcion_lava.gd" id="1_jwoux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mscgf"]
+size = Vector2(19, 192)
+
+[node name="ErupcionLava" type="Area2D" unique_id=127698825]
+script = ExtResource("1_jwoux")
+
+[node name="Aviso" type="ColorRect" parent="." unique_id=557546442]
+offset_left = -3.0
+offset_top = -191.0
+offset_right = 2.0
+color = Color(1.4369954, 0.99871105, 0.4257406, 0.30100003)
+
+[node name="Pilar" type="ColorRect" parent="." unique_id=2015439284]
+offset_left = -9.0
+offset_top = -192.0
+offset_right = 10.0
+color = Color(1, 0.30943933, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2072508542]
+position = Vector2(0.5, -96)
+shape = SubResource("RectangleShape2D_mscgf")
+
+[node name="Timer" type="Timer" parent="." unique_id=1831433996]

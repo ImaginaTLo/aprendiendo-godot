@@ -49,7 +49,7 @@ func _physics_process(delta):
 		is_squashed = true
 		squash_timer = SQUASH_DURATION
 		anim.scale = Vector2(1.8, 0.3) # 1.8 de ancho, 0.3 de alto (más fino)
-		anim.position.y = 10 # Empujamos el dibujo 11 píxeles hacia abajo para que toque el suelo
+		#anim.position.y = 12 # Empujamos el dibujo 11 píxeles hacia abajo para que toque el suelo
 
 	# Movimiento Horizontal
 	var direction = Input.get_axis("mover_izq", "mover_der")

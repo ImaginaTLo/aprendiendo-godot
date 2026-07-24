@@ -1,6 +1,6 @@
 extends Area2D
 
-const FALL_SPEED = 120.0 # Velocidad de caída
+const FALL_SPEED = 100.0 # Velocidad de caída
 
 func _ready():
 	# Conectamos la señal de colisión

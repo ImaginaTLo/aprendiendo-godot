@@ -1,6 +1,6 @@
 extends Area2D
 
-var velocidad = 120.0 # Velocidad constante
+var velocidad = 100.0 # Velocidad constante
 var altura_maxima = 70.0 # Píxeles que viaja hacia arriba (ajústalo a tu gusto)
 var y_inicial = 0.0
 var subiendo = true
