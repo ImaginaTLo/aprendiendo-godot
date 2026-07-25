@@ -30,14 +30,15 @@ offset_top = 5.0
 offset_right = 110.0
 offset_bottom = 28.0
 text = "Time: 0"
+metadata/_edit_use_anchors_ = true
 
 [node name="TimerPuntos" type="Timer" parent="." unique_id=1589155843]
 autostart = true
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=886172908]
-offset_left = 127.0
+offset_left = 117.0
 offset_top = 5.0
-offset_right = 300.0
+offset_right = 290.0
 offset_bottom = 32.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_0ic0o")
@@ -45,6 +46,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ve6e1")
 max_value = 4.0
 step = 1.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="LabelPuntuacion" type="Label" parent="." unique_id=2021045877]
 offset_left = 313.0
@@ -52,6 +54,7 @@ offset_top = 6.0
 offset_right = 392.0
 offset_bottom = 29.0
 text = "Score: 0"
+metadata/_edit_use_anchors_ = true
 
 [node name="LabelGameOver" type="Label" parent="." unique_id=118443507]
 visible = false
