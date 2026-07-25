@@ -61,5 +61,5 @@ offset_top = 313.0
 offset_right = 1068.0
 offset_bottom = 368.0
 theme_override_font_sizes/font_size = 33
-text = "YOU'VE TURNED INTO LIME JUICE. Press \"R\" to restart"
+text = "YOU'VE TURNED INTO LIME JUICE. Press \"Enter\" to restart"
 label_settings = SubResource("LabelSettings_0ic0o")
